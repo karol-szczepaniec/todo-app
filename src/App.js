@@ -52,8 +52,13 @@ function App() {
                 newInfo.itemsAmount ++;
                 break;
             case 'REMOVE':
-                newList = items.todoItems.filter(el => el.id != action.payload.id)
+
+                if(items.todoItems[index].isCompleted){
+                    newInfo.itemsMarked --;
+                }
+
                 newInfo.itemsAmount --;
+                newList = items.todoItems.filter(el => el.id != action.payload.id)
                 break;
             case 'MARK':
                 newList[index].isCompleted = !items.todoItems[index].isCompleted;
@@ -95,16 +100,62 @@ function App() {
 
 
 
-    const todoList = items.todoItems.map(i=><TodoItem key={i.id} item={i} taskActions={ListActions}/>)
+    const todoList = items.todoItems.map(i=>{
+        return(
+            i.isShowing ? <TodoItem key={i.id} item={i} taskActions={ListActions}/> : null
+        )
+    })
 
   return (
     <div className="App">
-        <p>all: {items.info.itemsAmount}</p>
-        <p>marked: {items.info.itemsMarked}</p>
-        <p>unmarked: {items.info.itemsAmount - items.info.itemsMarked}</p>
-        <br/>
-        {todoList}
-        <UsersBar/>
+        <div className="content">
+
+            <div className="left-sidebar">
+                <button onClick={(e)=>{
+                    e.preventDefault();
+                    ListActions({payload:{type: 'ADD',id: 1}})
+                }}>Add item</button>
+                <div>Power select</div>
+                <UsersBar/>
+            </div>
+
+            <div className="right-sidebar">
+
+                <div className="header">
+                    <button className="button" onClick={(e)=>{
+                        e.preventDefault();
+                        ListActions({payload:{type: 'FILTER',id: 1, fType: 'all'}})
+                    }}>POKAŻ WSZYSTKIE</button>
+                    <button className="button" onClick={(e)=>{
+                        e.preventDefault();
+                        ListActions({payload:{type: 'FILTER',id: 1, fType: 'marked'}})
+                    }}>POKAŻ UKOŃCZONE</button>
+                    <button className="button" onClick={(e)=>{
+                        e.preventDefault();
+                        ListActions({payload:{type: 'FILTER',id: 1, fType: 'unmarked'}})
+                    }}>POKAŻ NIEUKOŃCZONE</button>
+                </div>
+
+                <div className="left-content">
+
+                <div className="left-itembar">
+                    {todoList}
+                </div>
+
+                <div className="right-summarybar">
+                    <div className="summary">
+                        <p>PODSUMOWANIE</p>
+                        <div>
+                            <p>Wszystkie zadania : {items.info.itemsAmount}</p>
+                            <p>Ukończone zadania: {items.info.itemsMarked}</p>
+                            <p>Nieukończone zadania {items.info.itemsAmount - items.info.itemsMarked}</p>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
     </div>
   );
 }

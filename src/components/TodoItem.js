@@ -14,11 +14,6 @@ export default function TodoItem(props){
 
             <button onClick={(e)=>{
                 e.preventDefault();
-                props.taskActions({payload:{type: 'ADD',id: props.item.id}})
-            }}>Add item</button>
-
-            <button onClick={(e)=>{
-                e.preventDefault();
                 props.taskActions({payload:{type: 'REMOVE',id: props.item.id}})
             }}>Remove</button>
 
@@ -26,12 +21,6 @@ export default function TodoItem(props){
                 e.preventDefault();
                 props.taskActions({payload:{type: 'MARK',id: props.item.id}})
             }}>Mark</button>
-
-            <button onClick={(e)=>{
-                e.preventDefault();
-                props.taskActions({payload:{type: 'FILTER',id: props.item.id, fType: 'all'}})
-            }}>Filter by</button>
-
         </div>
     )
 }

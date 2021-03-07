@@ -1,12 +1,88 @@
 .App {
   text-align: center;
   //display: flex;
+  width: auto;
+  max-width: 1920px;
+}
+
+.content{
+  display: flex;
+  //background-color: wheat;
+  height: auto;
+  width: 100%;
+  align-items: start;
+  justify-content: start;
+  padding: 4px 40px 40px 40px;
+}
+
+.header{
+  top: 20px;
+  display: flex;
+  min-width: 640px;
+  margin: 30px 30px 5px 30px;
+  align-items: center;
+  align-content: start;
+}
+
+.button{
+  background-color: #FFDC64;
+  border: solid 1px #FFDC64;
+  border-radius: 4px;
+  outline: none;
+  padding: 10px;
+  margin: 10px 50px 10px 50px;
+}
+.button:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+
 }
 
 .item{
-  width: 500px;
+  width: 650px;
   height: 200px;
   background-color: cadetblue;
-  margin: 20px;
+  margin: 30px;
   padding: 20px;
+}
+
+.left-sidebar{
+  background-color: #F0F0F0;
+  position: -webkit-sticky;
+  position: sticky;
+  margin: 140px 10px 10px 10px;
+  top: 20px;
+  height: 100%;
+  width: 25%;
+}
+
+.summary{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  background-color: #F0F0F0;
+  border-radius: 6px;
+  width: 350px;
+  height: 200px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.right-sidebar{
+  padding: 5px;
+}
+
+.left-itembar{
+  margin: 10px;
+}
+
+.right-summarybar{
+  padding: 20px;
+  margin: 10px;
+}
+
+.left-content{
+  display: flex;
+  width: 90%;
+  margin: 0px 30px 30px 30px;
 }
