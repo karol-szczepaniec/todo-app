@@ -9,6 +9,7 @@ export default function TodoItem(props){
             content: {props.item.contentText} <br/>
             <p>isCompleted: {props.item.isCompleted ? 'tak' : 'nie'}</p> <br/>
             person: {props.item.assignedPerson} <br/>
+            isShowing: {props.item.isShowing ? 'tak' : 'nie'} <br/>
             <br/>
 
             <button onClick={(e)=>{
@@ -25,6 +26,11 @@ export default function TodoItem(props){
                 e.preventDefault();
                 props.taskActions({payload:{type: 'MARK',id: props.item.id}})
             }}>Mark</button>
+
+            <button onClick={(e)=>{
+                e.preventDefault();
+                props.taskActions({payload:{type: 'FILTER',id: props.item.id, fType: 'all'}})
+            }}>Filter by</button>
 
         </div>
     )
