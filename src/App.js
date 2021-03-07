@@ -1,6 +1,7 @@
 import React,{useReducer, useState} from "react";
 import './App.css';
 import TodoItem from "./components/TodoItem"
+import UsersBar from "./components/UsersBar";
 
 function App() {
 
@@ -103,6 +104,7 @@ function App() {
         <p>unmarked: {items.info.itemsAmount - items.info.itemsMarked}</p>
         <br/>
         {todoList}
+        <UsersBar/>
     </div>
   );
 }
