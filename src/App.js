@@ -1,9 +1,50 @@
-import React,{useReducer, useState} from "react";
+import React,{useEffect, useState} from "react";
 import './App.css';
 import TodoItem from "./components/TodoItem"
 import UsersBar from "./components/UsersBar";
 
 function App() {
+
+    useEffect(()=>{
+        const data = localStorage.getItem('items');
+
+        if(data){
+            setItems(JSON.parse(data))
+        }else {
+            setItems({
+                info: {
+                    itemsAmount: 2,
+                    itemsMarked: 1
+                },
+                todoItems: [
+                    {
+                        id: 1,
+                        isCompleted: false,
+                        date: '2021-03-08',
+                        contentText: 'jakiś tekst',
+                        assignedPerson: 'id: 11',
+                        isShowing: true,
+                        employeeName: "Mateusz Wiśniewski",
+                        employeeIng: "jeden"
+                    },
+                    {
+                        id: 2,
+                        isCompleted: true,
+                        date: '2021-03-08',
+                        contentText: 'opis taska',
+                        assignedPerson: 'id: 22',
+                        isShowing: true,
+                        employeeName: "Łukasz Walewski",
+                        employeeIng: "dwa"
+                    },
+                ]
+            })
+        }
+    },[])
+
+    useEffect(()=>{
+        localStorage.setItem('items',JSON.stringify(items))
+    })
 
     const [items, setItems] = useState({
         info:{
@@ -20,16 +61,6 @@ function App() {
             isShowing: true,
             employeeName: "Mateusz Wiśniewski",
             employeeIng: "jeden"
-        },
-        {
-            id: 2,
-            isCompleted: true,
-            date: '2021-03-08',
-            contentText: 'opis taska',
-            assignedPerson: 'id: 22',
-            isShowing: true,
-            employeeName: "Łukasz Walewski",
-            employeeIng: "dwa"
         },
         ]})
 
@@ -59,13 +90,14 @@ function App() {
                 newInfo.itemsAmount ++;
                 break;
             case 'REMOVE':
+                if(items.todoItems.length >1) {
+                    if (items.todoItems[index].isCompleted) {
+                        newInfo.itemsMarked--;
+                    }
 
-                if(items.todoItems[index].isCompleted){
-                    newInfo.itemsMarked --;
+                    newInfo.itemsAmount--;
+                    newList = items.todoItems.filter(el => el.id != action.payload.id)
                 }
-
-                newInfo.itemsAmount --;
-                newList = items.todoItems.filter(el => el.id != action.payload.id)
                 break;
             case 'MARK':
                 newList[index].isCompleted = !items.todoItems[index].isCompleted;
@@ -102,7 +134,7 @@ function App() {
                 return true;
         }
 
-        setItems({info: newInfo, todoItems: newList});
+        setItems({info: newInfo, todoItems: newList})
     }
 
 
