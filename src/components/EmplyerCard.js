@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../logo.svg";
 import checkIco from "../svg/check.svg"
+import emp2 from "../svg/person2.png"
 
 export default function EmployerCard(props){
 
@@ -9,9 +10,9 @@ export default function EmployerCard(props){
             e.preventDefault();
             props.selectEl(props.item)
         }}>
-            <img src={Logo} className="img"/>
-            <p>{props.item.name}
-            <img className={props.item.isSelected ? "selectedEmp checked" : "none"} src={checkIco}/>
+            <img src={emp2} className="img"/>
+            <p className="empNames">{props.item.name}
+            <img className={props.item.isSelected ? "selectedEmp" : "none"} src={checkIco}/>
             </p>
         </div>
     )

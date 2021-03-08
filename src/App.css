@@ -8,6 +8,7 @@
 .content{
   display: flex;
   //background-color: wheat;
+  align-items: center;
   width: 100%;
   align-items: start;
   justify-content: start;
@@ -30,8 +31,27 @@
   outline: none;
   padding: 10px;
   margin: 10px 50px 10px 50px;
+  -webkit-box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
+  box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
 }
 .button:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+
+}
+
+.buttonAdd{
+  background-color: #FFDC64;
+  border: solid 1px #FFDC64;
+  border-radius: 4px;
+  width: 400px;
+  outline: none;
+  padding: 10px;
+  margin: 10px 50px 10px 50px;
+  -webkit-box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
+  box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
+}
+.buttonAdd:hover{
   cursor: pointer;
   transform: scale(1.1);
 
@@ -45,10 +65,13 @@
   border-radius: 6px;
   margin: 30px;
   padding: 20px;
+  -webkit-box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
+  box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
 }
 
 .left-sidebar{
   background-color: #F0F0F0;
+  border-radius: 6px;
   position: -webkit-sticky;
   position: sticky;
   margin: 140px 10px 10px 10px;
@@ -57,6 +80,8 @@
   height: 100%;
   width: 25%;
   min-width: 258px;
+  -webkit-box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
+  box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
 }
 
 .summary{
@@ -69,6 +94,8 @@
   height: 200px;
   margin: 5px;
   padding: 10px;
+  -webkit-box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
+  box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
 }
 
 .right-sidebar{
@@ -91,30 +118,42 @@
 }
 
 .img{
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .employee{
   align-items: center;
+  padding: 10px;
   display: flex;
 }
 .employee:hover{
   cursor: pointer;
-  background-color: white;
+  background-color: #cccccc;
 }
 
 .active{
   background-color: #cccccc;
+  color: #004C8A;
+  font-weight: bold;
 }
 
 textarea{
-  width: auto;
+  width: 80%;
+  max-width: 430px;
+  min-width: 80px;
   min-height: 150px;
+  max-height: 600px;
   padding: 20px;
   border-radius: 8px;
   outline: none;
   border: none;
+  -webkit-box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
+  box-shadow: 0px 10px 8px 2px rgba(192,192,192,0.81);
 }
 
 .item-left{
@@ -138,12 +177,28 @@ textarea{
   margin-bottom: 70px;
 }
 
+.icoBin{
+  width: 30px;
+  height: 30px;
+  align-items: flex-end;
+}
+
+.icoBin:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 .icoBtn:hover{
+  cursor: pointer;
   transform: scale(1.1);
 }
 
 .checked{
-  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+filter: invert(69%) sepia(47%) saturate(6276%) hue-rotate(92deg);
+}
+
+.checkedEmp{
+  filter: invert(19%) sepia(53%) saturate(2921%) hue-rotate(190deg);
 }
 
 .empName{
@@ -173,15 +228,20 @@ textarea{
 }
 
 .nameField{
-  margin: 2px;
+  margin: 2px 2px 2px 20px;
 }
 
 .selectedEmp{
   margin-left: 80px;
   width: 20px;
   height: 20px;
+  filter: invert(19%) sepia(53%) saturate(2921%) hue-rotate(190deg);
 }
 
 .none{
   display: none;
+}
+
+.empNames{
+  margin-left: 30px;
 }

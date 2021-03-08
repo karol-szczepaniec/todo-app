@@ -2,6 +2,7 @@ import React from "react";
 import checkIcon from "../svg/checkStatus.svg"
 import binIcon from "../svg/bin.svg"
 import empIco from "../svg/checkStatus.svg"
+import emp2 from "../svg/person2.png"
 
 export default function TodoItem(props){
 
@@ -29,7 +30,7 @@ export default function TodoItem(props){
         <div className="item">
             <div className="item-left">
                 <div className="empName">
-                    <img className="empIco" src={empIco}/>
+                    <img className="img" src={emp2}/>
                     <p className="nameField">{props.item.employeeName}</p>
                 </div>
                 <div className="taskDate">
@@ -44,7 +45,7 @@ export default function TodoItem(props){
                          props.taskActions({payload:{type: 'MARK',id: props.item.id}})
                      }}
                 />
-                <img className="icoBtn" src={binIcon}
+                <img className="icoBin" src={binIcon}
                 onClick={(e)=>{
                     e.preventDefault();
                     props.taskActions({payload:{type: 'REMOVE',id: props.item.id}})

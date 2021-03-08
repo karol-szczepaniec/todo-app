@@ -10,19 +10,19 @@ export default function UsersBar(props){
             {
               id: 1,
               name: "Adam Nowak",
-              picture: "src",
+              picture: "../svg/person1.jpeg",
               isSelected: false
             },
             {
                 id: 2,
                 name: "Michał Potoczek",
-                picture: "src",
+                picture: "emp",
                 isSelected: false
             },
             {
                 id: 3,
                 name: "Antoni Worek",
-                picture: "src",
+                picture: "emp",
                 isSelected: false
             },
         ]
@@ -67,7 +67,7 @@ export default function UsersBar(props){
         <div>
             <textarea placeholder="Zadanie" value={newTask.taskText} onInput={(e)=>setNewTask({taskText: e.target.value})}/>
             {eList}
-            <button className="button" onClick={(e)=>{
+            <button className="buttonAdd" onClick={(e)=>{
                 e.preventDefault();
                 beforeSubmit();
             }}>DODAJ</button>
