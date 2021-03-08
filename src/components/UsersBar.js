@@ -5,6 +5,7 @@ export default function UsersBar(props){
 
     const [newTask, setNewTask] = useState({taskText: ""})
     const [currentEmp, setCurrentEmp] = useState({ currentEmp: null})
+    const [powerList, setPowerList] = useState([]);
     const [employeesList, setEmployeesList] = useState({
         employees:[
             {
@@ -60,6 +61,17 @@ export default function UsersBar(props){
             })
         }
     }
+    // TODO SearchSelect
+    // function filteredList(val){
+    //     if(val.length >0){
+    //         let newList = employeesList.employees;
+    //
+    //         newList.filter(el=>{
+    //             let a = el.name.search(val);
+    //             console.log(a)
+    //         })
+    //     }
+    // }
 
     const eList = employeesList.employees.map(em=>{return(<EmployerCard key={em.id} item={em} selectEl={selectEmployer}/>)})
 
