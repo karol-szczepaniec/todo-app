@@ -37,6 +37,7 @@ function App() {
 
         switch (action.payload.type){
             case 'ADD':
+                console.log(action.payload.empId)
                 let newId = items.todoItems[items.todoItems.length-1].id ?
                     items.todoItems[items.todoItems.length-1].id+1 :
                     items.todoItems.length+1;
@@ -45,8 +46,8 @@ function App() {
                     isCompleted: false,
                     isShowing: true,
                     date: new Date (Date.now()).toLocaleDateString(),
-                    contentText: 'jakiś task do zrobienia',
-                    assignedPerson: 'id: 22'
+                    contentText: action.payload.taskText,
+                    assignedPerson: action.payload.empId,
                 }
                 newList.push(newItem);
                 newInfo.itemsAmount ++;
@@ -111,11 +112,7 @@ function App() {
         <div className="content">
 
             <div className="left-sidebar">
-                <UsersBar/>
-                <button className="button" onClick={(e)=>{
-                    e.preventDefault();
-                    ListActions({payload:{type: 'ADD',id: 1}})
-                }}>Add item</button>
+                <UsersBar checkedForm={ListActions}/>
             </div>
 
             <div className="right-sidebar">

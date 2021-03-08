@@ -4,7 +4,7 @@ import Logo from "../logo.svg";
 export default function EmployerCard(props){
 
     return(
-        <div key={props.item.id} className="employee" onClick={(e)=>{
+        <div key={props.item.id} className={props.item.isSelected ? 'employee active' : 'employee'} onClick={(e)=>{
             e.preventDefault();
             props.selectEl(props.item.id)
         }}>
