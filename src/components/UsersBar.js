@@ -33,9 +33,9 @@ export default function UsersBar(props){
         let newList = employeesList.employees;
 
         newList.map(i=>{
-            if(i.id == eId){
+            if(i.id == eId.id){
                 i.isSelected = !i.isSelected;
-               setCurrentEmp({currentEmp: i.id})
+               setCurrentEmp({currentEmp: i})
             }else{
                 i.isSelected = false;
             }
@@ -52,7 +52,7 @@ export default function UsersBar(props){
         })
 
         if(newTask.taskText.length > 2 && checked){
-            props.checkedForm({payload:{type: 'ADD',id: 1, empId: currentEmp.currentEmp, taskText: newTask.taskText}});
+            props.checkedForm({payload:{type: 'ADD',id: 1, emp: currentEmp.currentEmp, taskText: newTask.taskText}});
             setNewTask({taskText: ""})
 
             employeesList.employees.map(el=>{

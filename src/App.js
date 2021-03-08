@@ -17,7 +17,9 @@ function App() {
             date: '2021-03-08',
             contentText: 'jakiś tekst',
             assignedPerson: 'id: 11',
-            isShowing: true
+            isShowing: true,
+            employeeName: "Mateusz Wiśniewski",
+            employeeIng: "jeden"
         },
         {
             id: 2,
@@ -25,7 +27,9 @@ function App() {
             date: '2021-03-08',
             contentText: 'opis taska',
             assignedPerson: 'id: 22',
-            isShowing: true
+            isShowing: true,
+            employeeName: "Łukasz Walewski",
+            employeeIng: "dwa"
         },
         ]})
 
@@ -37,7 +41,7 @@ function App() {
 
         switch (action.payload.type){
             case 'ADD':
-                console.log(action.payload.empId)
+                console.log(action.payload.emp)
                 let newId = items.todoItems[items.todoItems.length-1].id ?
                     items.todoItems[items.todoItems.length-1].id+1 :
                     items.todoItems.length+1;
@@ -47,7 +51,9 @@ function App() {
                     isShowing: true,
                     date: new Date (Date.now()).toLocaleDateString(),
                     contentText: action.payload.taskText,
-                    assignedPerson: action.payload.empId,
+                    assignedPerson: action.payload.emp.id,
+                    employeeName: action.payload.emp.name,
+                    employeeIng: action.payload.emp.picture
                 }
                 newList.push(newItem);
                 newInfo.itemsAmount ++;

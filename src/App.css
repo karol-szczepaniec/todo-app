@@ -8,7 +8,6 @@
 .content{
   display: flex;
   //background-color: wheat;
-  height: auto;
   width: 100%;
   align-items: start;
   justify-content: start;
@@ -39,9 +38,11 @@
 }
 
 .item{
+  display: flex;
   width: 650px;
-  height: 200px;
-  background-color: cadetblue;
+  height: auto;
+  background-color: #F0F0F0;
+  border-radius: 6px;
   margin: 30px;
   padding: 20px;
 }
@@ -55,6 +56,7 @@
   top: 20px;
   height: 100%;
   width: 25%;
+  min-width: 258px;
 }
 
 .summary{
@@ -104,4 +106,82 @@
 
 .active{
   background-color: #cccccc;
+}
+
+textarea{
+  width: auto;
+  min-height: 150px;
+  padding: 20px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+}
+
+.item-left{
+  display: block;
+  height: auto;
+  width: 90%;
+  padding: 5px;
+  padding: 30px;
+}
+
+.item-right{
+  width: 10%;
+  padding: 5px;
+  height: auto;
+}
+
+.icoBtn{
+  padding-top: 10px;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 70px;
+}
+
+.icoBtn:hover{
+  transform: scale(1.1);
+}
+
+.checked{
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+.empName{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  margin: 10px;
+  font-size: x-large;
+}
+
+.taskDate{
+  text-align: left;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.taskContent{
+  text-align: left;
+  margin: 40px 10px 10px 10px;
+  height: auto;
+}
+
+.empIco{
+  width: 30px;
+  height: 30px;
+  margin-right: 30px;
+}
+
+.nameField{
+  margin: 2px;
+}
+
+.selectedEmp{
+  margin-left: 80px;
+  width: 20px;
+  height: 20px;
+}
+
+.none{
+  display: none;
 }
