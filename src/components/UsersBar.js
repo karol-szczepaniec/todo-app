@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import EmployerCard from "./EmplyerCard";
 
 export default function UsersBar(){
 
@@ -7,28 +8,44 @@ export default function UsersBar(){
             {
               id: 1,
               name: "Adam Nowak",
-              picture: "src"
+              picture: "src",
+              isSelected: false
             },
             {
                 id: 2,
                 name: "Michał Potoczek",
-                picture: "src"
+                picture: "src",
+                isSelected: false
             },
             {
                 id: 3,
                 name: "Antoni Worek",
-                picture: "src"
+                picture: "src",
+                isSelected: false
             },
         ]
         }
     )
+
+    function selectEmployer(eId){
+        let newList = employeesList.employees;
+
+        newList.map(i=>{
+            if(i.id == eId){
+                i.isSelected = !i.isSelected;
+            }else{
+                i.isSelected = false;
+            }
+        })
+        setEmployeesList({employees:newList})
+    }
+
+    const eList = employeesList.employees.map(em=>{return(<EmployerCard key={em.id} item={em} selectEl={selectEmployer}/>)})
+
     return(
         <div>
-            <p>Lista pracowników</p>
-            <p>Tutaj search select</p>
-            <p>onSelect, zaznaczenie</p>
-            <p>input text</p>
-            <p>submit button, z walidacją</p>
+            <textarea placeholder="Zadanie" onInput={(e)=>console.log(e.target.value)}/>
+            {eList}
         </div>
     )
 }

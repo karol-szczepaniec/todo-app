@@ -43,7 +43,7 @@ function App() {
                 let newItem = {
                     id: newId,
                     isCompleted: false,
-                    isShowing: false,
+                    isShowing: true,
                     date: new Date (Date.now()).toLocaleDateString(),
                     contentText: 'jakiś task do zrobienia',
                     assignedPerson: 'id: 22'
@@ -111,12 +111,11 @@ function App() {
         <div className="content">
 
             <div className="left-sidebar">
-                <button onClick={(e)=>{
+                <UsersBar/>
+                <button className="button" onClick={(e)=>{
                     e.preventDefault();
                     ListActions({payload:{type: 'ADD',id: 1}})
                 }}>Add item</button>
-                <div>Power select</div>
-                <UsersBar/>
             </div>
 
             <div className="right-sidebar">
